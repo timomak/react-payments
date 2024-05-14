@@ -55,9 +55,9 @@ function App() {
 
   return (
     <div className="App">
-    <div className='form'>
-      {content}
-    </div>
+      <div className='form'>
+        {content}
+      </div>
     </div>
   );
 }
