@@ -29,7 +29,7 @@ function App() {
     setSubmitted(!submitted);
   }, [submitted]);
 
-  const content = submitted ? (
+  const content = useMemo(() => submitted ? (
     <div>
       <p>Amazing</p>
       <button type='button' onClick={handleSubmit}>Go Back</button>
@@ -44,14 +44,14 @@ function App() {
       </div>
       <br/>
       <div>
-        <label>Last Name</label>
+        <label>Email</label>
         <br/>
         <input placeholder='Email...' />
       </div>
       <br />
       <button type='button' onClick={handleSubmit}>Submit</button>
     </form>
-  );
+  ), [handleSubmit, submitted]);
 
   return (
     <div className="App">
