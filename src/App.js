@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 // Using dynamic import to load node-fetch
 
 // const url = 'https://url.com/';
@@ -20,15 +20,14 @@ import { useState } from 'react';
 
 
 function App() {
-  // const [responseCount, setResponseCount] = useState(undefined);
-
   // const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = event => {
-    // event.preventDefaults()
+
+  const handleSubmit = useCallback((event) => {
+    event.preventDefault();
     setSubmitted(!submitted);
-  };  
+  }, [submitted]);
 
   const content = submitted ? (
     <div>
